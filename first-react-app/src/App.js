@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddNinja from './AddNinja';
 import Ninjas from './ninjas';
+import './index.css'
 
 class App extends Component {
   state = {
@@ -25,21 +26,23 @@ class App extends Component {
       ninjas: ninjas
     })
   }
+  //gives info if component is mounted
   componentDidMount() {
     console.log('component mounted');
   }
+  //we can compare prev state with current state
   componentDidUpdate(prevProps, prevState) {
     console.log('component updated')
     console.log(prevProps, prevState);
   }
   render() {
     return(
-    <div className="App">
-      <h1>My first React app!</h1>
-      <p>Hello and Welcome ;)</p>
-      <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja}/>
-      <AddNinja addNinja={this.addNinja}/>
-    </div>
+      <div className="app">
+        <h1>My first React app!</h1>
+        <p>Hello and Welcome ;)</p>
+        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja}/>
+        <AddNinja addNinja={this.addNinja}/>
+      </div>
     );
   }
 }
